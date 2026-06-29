@@ -8,8 +8,10 @@ from dotenv import load_dotenv
 from data_fetcher import fetch_and_store
 from analysis import compute_metrics
 
+import os
 load_dotenv('config.env')
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+api_key = os.getenv('ANTHROPIC_API_KEY') or st.secrets.get('ANTHROPIC_API_KEY')
+client = anthropic.Anthropic(api_key=api_key)
 
 def generate_narrative(ticker, metrics):
     latest = metrics.iloc[-1]
