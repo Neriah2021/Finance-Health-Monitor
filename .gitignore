@@ -2,3 +2,7 @@ config.env
 financial_data.db
 __pycache__/
 *.pyc
+financial_data.db
+setup.py
+write_app.py
+__pycache__/
